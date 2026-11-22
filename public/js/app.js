@@ -26,7 +26,7 @@
         const ls = lessons.filter((l) => l.section === s.id);
         const n = ls.filter((l) => done.has(l.id)).length;
         return '<section><h3><span class="sec-n">' + (si + 1) + '</span>' + s.title + '<small>' + n + '/' + ls.length + '</small></h3><ul>' +
-          ls.map((l) => '<li><a href="#/' + l.id + '" class="' + (current === l.id ? 'on ' : '') + (done.has(l.id) ? 'done' : '') + '">' +
+          ls.map((l, i) => (l.group && l.group !== (ls[i - 1] || {}).group ? '<li class="grp">' + l.group + '</li>' : '') + '<li><a href="#/' + l.id + '" class="' + (current === l.id ? 'on ' : '') + (done.has(l.id) ? 'done' : '') + '">' +
             '<i class="dot"></i><span>' + l.title + '</span>' + (l.status === 'planned' ? '<em>planned</em>' : l.status === 'removed' ? '<em>removed</em>' : '') + '</a></li>').join('') +
           '</ul></section>';
       }).join('') +
