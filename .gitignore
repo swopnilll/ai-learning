@@ -1,0 +1,8 @@
+node_modules
+.next
+_src_pdfs
+_work
+archive
+.vercel
+next-env.d.ts
+.DS_Store
